@@ -1,0 +1,16 @@
+# Copy to devices.yaml and list your devices.
+# vendor: mikrotik_routeros | cisco_ios | juniper_junos
+# Credentials come from environment variables (default NCD_USERNAME / NCD_PASSWORD).
+# A device can use its own pair with username_env / password_env.
+devices:
+  - name: edge-rtr-01
+    vendor: mikrotik_routeros
+    host: 192.0.2.1
+  - name: core-sw-01
+    vendor: cisco_ios
+    host: 192.0.2.2
+  - name: dc-fw-01
+    vendor: juniper_junos
+    host: 192.0.2.3
+    username_env: FW_USERNAME
+    password_env: FW_PASSWORD

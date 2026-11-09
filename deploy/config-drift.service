@@ -1,0 +1,17 @@
+# /etc/systemd/system/config-drift.service
+[Unit]
+Description=Back up network configs and report changes
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=oneshot
+User=configdrift
+WorkingDirectory=/opt/config-drift
+EnvironmentFile=/opt/config-drift/.env
+ExecStart=/opt/config-drift/.venv/bin/config-drift run --inventory /opt/config-drift/devices.yaml --out /opt/config-drift/reports
+# Exit code 1 means a device could not be collected; let systemd record it as a failure.
+NoNewPrivileges=true
+ProtectSystem=strict
+ReadWritePaths=/opt/config-drift/data /opt/config-drift/reports
+PrivateTmp=true

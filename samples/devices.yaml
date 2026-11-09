@@ -1,0 +1,14 @@
+# Fictional devices for the demo. Addresses use documentation and private ranges.
+devices:
+  - name: edge-rtr-01
+    vendor: mikrotik_routeros
+    host: 203.0.113.10
+  - name: branch-rtr-02
+    vendor: mikrotik_routeros
+    host: 203.0.113.42
+  - name: core-sw-01
+    vendor: cisco_ios
+    host: 10.10.0.2
+  - name: dc-fw-01
+    vendor: juniper_junos
+    host: 10.30.0.1

@@ -1,0 +1,11 @@
+# /etc/systemd/system/config-drift.timer
+[Unit]
+Description=Run config-drift every day at 06:15
+
+[Timer]
+OnCalendar=*-*-* 06:15:00
+Persistent=true
+RandomizedDelaySec=5m
+
+[Install]
+WantedBy=timers.target
